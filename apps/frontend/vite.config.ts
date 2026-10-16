@@ -9,6 +9,9 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  preview: {
+    allowedHosts: ["frontend-production-f7d0.up.railway.app"],
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
