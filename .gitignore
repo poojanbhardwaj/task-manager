@@ -56,3 +56,8 @@ tsconfig.tsbuildinfo
 .env
 .turbo
 .vscode
+
+# Local storage binaries, uploads, and private environment files
+/.local/
+.env.local
+.env.*.local

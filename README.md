@@ -77,6 +77,21 @@ The root development command starts the frontend, shared-package watchers, and e
 - API reference: http://localhost:8080/docs
 - Email preview: http://localhost:3001
 
+## Local attachment storage (no cloud subscription)
+
+Use SeaweedFS to follow the tutorial's S3 file-storage section locally:
+
+```powershell
+bun storage:setup
+bun storage:start
+```
+
+Keep that terminal open and run `bun storage:check` in another terminal.
+Setup generates private credentials in `apps/backend/.env`; files persist in
+the ignored `.local/storage-data` folder. PostgreSQL still stores task records.
+See [local storage instructions](docs/local-storage.md) for settings and usage.
+Task attachment endpoints and UI are still to be implemented.
+
 ## Build and check
 
 From the project root:
@@ -91,6 +106,17 @@ go build ./...
 The starter currently has no Go test files; `go test ./...` checks package compilation and the default vet checks.
 
 After building shared packages, run `bun run gen` from `packages/openapi` to regenerate API documentation. Run `bun run export` from `packages/emails` to export email templates.
+
+## Clean generated files
+
+From the project root, run `bun clean` to remove frontend/package build outputs,
+TypeScript build caches, Turbo caches, and installed `node_modules` folders.
+Source files, environment files, lockfiles, and Go module caches are preserved.
+Cleanup uses Node's built-in filesystem functions and works without installing
+JavaScript dependencies first. Running it again is safe.
+
+Run `bun install --frozen-lockfile` afterward before building or developing.
+To clean only one workspace, run `bun clean` from that workspace's directory.
 
 ## Repository
 

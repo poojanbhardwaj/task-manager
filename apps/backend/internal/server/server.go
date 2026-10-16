@@ -27,6 +27,7 @@ type Server struct {
 }
 
 func New(cfg *config.Config, logger *zerolog.Logger, loggerService *loggerPkg.LoggerService) (*Server, error) {
+
 	db, err := database.New(cfg, logger, loggerService)
 	if err != nil {
 		return nil, fmt.Errorf("failed to initialize database: %w", err)
@@ -34,7 +35,9 @@ func New(cfg *config.Config, logger *zerolog.Logger, loggerService *loggerPkg.Lo
 
 	// Redis client with New Relic integration
 	redisClient := redis.NewClient(&redis.Options{
-		Addr: cfg.Redis.Address,
+		Addr:     cfg.Redis.Address,
+		Password: cfg.Redis.Password,
+		DB:       0,
 	})
 
 	// Add New Relic Redis hooks if available

@@ -1,6 +1,6 @@
 import { API_URL } from "@/config/env";
 import { apiContract } from "@poojanbhardwaj/openapi/contracts";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuth } from "@clerk/react";
 import { initClient } from "@ts-rest/core";
 import axios, {
   type Method,
@@ -24,7 +24,7 @@ export const useApiClient = ({ isBlob = false }: { isBlob?: boolean } = {}) => {
       "Content-Type": "application/json",
     },
     api: async ({ path, method, headers, body }) => {
-      const token = await getToken({ template: "custom" });
+      const token = await getToken();
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const makeRequest = async (retryCount = 0): Promise<any> => {

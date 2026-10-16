@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc && tsc-alias",
     "dev": "tsc && (concurrently \"tsc -w\" \"tsc-alias -w\")",
-    "clean": "rimraf dist tsconfig.tsbuildinfo .turbo node_modules"
+    "clean": "node ../../scripts/clean.mjs packages/zod"
   },
   "exports": {
     ".": {

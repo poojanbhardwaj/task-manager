@@ -9,9 +9,12 @@
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "typecheck": "turbo run typecheck",
-    "clean": "turbo run clean && rimraf node_modules"
+    "clean": "node scripts/clean.mjs",
+    "storage:setup": "node scripts/storage.mjs setup",
+    "storage:start": "node scripts/storage.mjs start",
+    "storage:check": "node scripts/storage.mjs check"
   },
-  "packageManager": "bun@1.2.13",
+  "packageManager": "bun@1.4.0",
   "engines": {
     "node": ">=22"
   },
