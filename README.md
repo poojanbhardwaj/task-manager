@@ -1,8 +1,6 @@
 # Task Manager
 
-Task Manager starter maintained by **poojanbhardwaj**, with a Go API and React/TypeScript frontend.
-
-The starting screen displays the project name. Task creation, editing, completion, and other task-management features are still to be implemented.
+Task Manager is a full-stack application maintained by **poojanbhardwaj**, with a Go API and a React/TypeScript frontend.
 
 ## Project layout
 
@@ -11,6 +9,14 @@ The starting screen displays the project name. Task creation, editing, completio
 - `packages/zod`: shared schemas (`@poojanbhardwaj/zod`).
 - `packages/openapi`: API contracts and documentation (`@poojanbhardwaj/openapi`).
 - `packages/emails`: email templates (`@poojanbhardwaj/emails`).
+
+## Deployment
+
+- **Frontend:** [https://frontend-production-f7d0.up.railway.app](https://frontend-production-f7d0.up.railway.app)
+- **Backend health:** [https://task-manager-production-dcdd.up.railway.app/status](https://task-manager-production-dcdd.up.railway.app/status)
+- **API documentation:** [https://task-manager-production-dcdd.up.railway.app/docs](https://task-manager-production-dcdd.up.railway.app/docs)
+
+The frontend and backend are deployed as separate Railway services. Clerk is currently in Development mode for demo and test use. Clerk Production mode requires a custom domain; Railway-generated `*.up.railway.app` domains are not accepted by Clerk for production.
 
 Backend module: `github.com/poojanbhardwaj/task-manager/apps/backend`.
 
@@ -120,17 +126,7 @@ To clean only one workspace, run `bun clean` from that workspace's directory.
 
 ## Repository
 
-This independent local repository uses the intended remote:
-
-```text
-https://github.com/poojanbhardwaj/task-manager.git
-```
-
-The GitHub repository has not been created or published by this setup. After creating an empty repository with that name under your account, run:
-
-```powershell
-git push -u origin main
-```
+The project is hosted in the private [GitHub repository](https://github.com/poojanbhardwaj/task-manager).
 
 ## License
 
